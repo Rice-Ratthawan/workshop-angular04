@@ -1,0 +1,11 @@
+li:hover {   
+    cursor: pointer; 
+} 
+li.selected {   
+    text-decoration: line-through; 
+}
+
+.warntext {
+    color: red;
+
+}

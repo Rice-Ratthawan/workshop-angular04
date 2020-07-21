@@ -1,0 +1,54 @@
+<form [formGroup]="loginForm" (ngSubmit)="saveData()">
+  <div class="form-group">
+    <label for="firstName">First name</label>
+    <br/>
+    <input
+      type="text"
+      formControlName="firstName"
+      class="form-control"
+      [ngClass]="{'is-invalid': submitted && loginForm.controls.firstName.errors}"
+    />
+    <div *ngIf="submitted && loginForm.controls.firstName.errors" class="invalid-feedback">
+      <div *ngIf="loginForm.controls.firstName.errors.required" class="warntext">
+        First name is required
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last name</label>
+    <br/>
+    <input
+      type="password"
+      formControlName="lastName"
+      class="form-control"
+      [ngClass]="{'is-invalid': submitted && loginForm.controls.lastName.errors}"
+    />
+    <div *ngIf="submitted && loginForm.controls.lastName.errors" class="invalid-feedback">
+      <div *ngIf="loginForm.controls.lastName.errors.required" class="warntext">
+        Last name is required
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="form-group">
+    <button class="btn btn-primary">
+      Save
+    </button>
+  </div>
+</form>
+
+<p>Count = {{ selected }}/{{ users.length }}</p>
+
+<ul *ngIf="show">
+  <li
+    *ngFor="let user of users; let i = index"
+    [class.selected]="user.status"
+    (click)="doToggle(i)"
+  >
+    {{ user.name }}
+  </li>
+</ul>
+
+
+
+
